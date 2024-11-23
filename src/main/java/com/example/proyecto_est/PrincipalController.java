@@ -17,7 +17,7 @@ public class PrincipalController {
     @FXML
     Label nombre;
 
-    private Estudiante estudiante = new Estudiante();
+    private Estudiante estudiante;
 
     public Estudiante getEstudiante() {
         return estudiante;
@@ -25,11 +25,14 @@ public class PrincipalController {
 
     public void setEstudiante(Estudiante estudiante) {
         this.estudiante = estudiante;
+        if (nombre != null) {
+            nombre.setText(estudiante.getUsuario());
+        }
     }
 
     @FXML
     private void initialize() {
-        nombre.setText(estudiante.getUsuario());
+
     }
 
     /*public class CustomSearchBar extends Application {
