@@ -11,7 +11,19 @@ import javafx.geometry.Pos;
 import javafx.scene.layout.AnchorPane;
 
 public class PrincipalController {
+    private Estudiante estudiante;
+
+    public Estudiante getEstudiante() {
+        return estudiante;
+    }
+
+    public void setEstudiante(Estudiante estudiante) {
+        this.estudiante = estudiante;
+    }
+
     public class CustomSearchBar extends Application {
+
+
 
         @Override
         public void start(Stage primaryStage) {
