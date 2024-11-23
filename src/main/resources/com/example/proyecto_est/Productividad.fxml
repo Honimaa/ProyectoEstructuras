@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="640.0" prefWidth="520.0" style="-fx-background-color: #160866;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.proyecto_est.Productividad">
+   <children>
+      <ImageView fitHeight="102.0" fitWidth="108.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../pfpMujer.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="206.0" layoutY="106.0" text="Productividad" textFill="WHITE">
+         <font>
+            <Font name="Bookshelf Symbol 7" size="18.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="78.0" fitWidth="72.0" layoutX="337.0" layoutY="79.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../RelojArena.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+      </ImageView>
+      <Label layoutX="65.0" layoutY="183.0" text="Ultima tarea que has podido" textFill="WHITE">
+         <font>
+            <Font name="Bookshelf Symbol 7" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="65.0" layoutY="206.0" text="acabar:" textFill="WHITE">
+         <font>
+            <Font name="Bookshelf Symbol 7" size="14.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="57.0" fitWidth="47.0" layoutX="10.0" layoutY="175.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../Reloj.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="61.0" layoutY="291.0" text="Tarea a la que le daras" textFill="WHITE">
+         <font>
+            <Font name="Bookshelf Symbol 7" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="59.0" layoutY="313.0" text="prioridad:" textFill="WHITE">
+         <font>
+            <Font name="Bookshelf Symbol 7" size="14.0" />
+         </font>
+      </Label>
+      <ChoiceBox layoutX="61.0" layoutY="342.0" prefHeight="25.0" prefWidth="211.0" />
+      <ImageView fitHeight="57.0" fitWidth="47.0" layoutX="10.0" layoutY="297.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../Libros.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="66.0" layoutY="416.0" text="Hacer pausas activas " textFill="WHITE">
+         <font>
+            <Font name="Bookshelf Symbol 7" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="65.0" layoutY="440.0" text="cada:" textFill="WHITE">
+         <font>
+            <Font name="Bookshelf Symbol 7" size="14.0" />
+         </font>
+      </Label>
+      <ChoiceBox layoutX="66.0" layoutY="471.0" prefHeight="25.0" prefWidth="184.0" />
+      <ImageView fitHeight="57.0" fitWidth="47.0" layoutX="10.0" layoutY="424.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../Descanso.png" />
+         </image>
+      </ImageView>
+      <ProgressBar layoutX="56.0" layoutY="573.0" prefHeight="18.0" prefWidth="431.0" progress="0.0" />
+      <Label layoutX="189.0" layoutY="546.0" text="Nivel de productividad:" textFill="WHITE">
+         <font>
+            <Font name="Bookshelf Symbol 7" size="14.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="640.0" prefWidth="599.0" style="-fx-background-color: #160866;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.proyecto_est.LoginController">
+   <children>
+      <Label alignment="CENTER" layoutX="230.0" layoutY="94.0" prefHeight="49.0" prefWidth="140.0" text="Nombre de Usuario" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Bookshelf Symbol 7" size="12.0" />
+         </font></Label>
+      <PasswordField layoutX="199.0" layoutY="290.0" prefHeight="28.0" prefWidth="204.0" />
+      <TextField layoutX="199.0" layoutY="159.0" prefHeight="34.0" prefWidth="204.0" />
+      <Label alignment="CENTER" layoutX="257.0" layoutY="224.0" prefHeight="49.0" prefWidth="86.0" text="Contraseña" textFill="WHITE">
+         <font>
+            <Font name="Bookshelf Symbol 7" size="12.0" />
+         </font></Label>
+      <Button layoutX="230.0" layoutY="525.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="140.0" text="Crear nuevo usuario">
+         <font>
+            <Font name="Bookshelf Symbol 7" size="12.0" />
+         </font></Button>
+      <Label alignment="CENTER" layoutX="210.0" layoutY="350.0" prefHeight="49.0" prefWidth="182.0" text="Confirmar contraseña" textFill="WHITE">
+         <font>
+            <Font name="Bookshelf Symbol 7" size="12.0" />
+         </font>
+      </Label>
+      <PasswordField layoutX="199.0" layoutY="415.0" prefHeight="28.0" prefWidth="204.0" />
+      <ImageView fitHeight="85.0" fitWidth="140.0" layoutX="428.0" layoutY="520.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../Logo.jpg" />
+         </image>
+      </ImageView>
+      <Line endX="13.5" endY="-91.0" layoutX="85.0" layoutY="76.0" startX="-100.0" />
+      <Line endX="30.5" endY="-109.70710754394531" layoutX="42.0" layoutY="78.0" startX="-100.0" />
+      <Line endX="-2.70709228515625" endY="63.585784912109375" layoutX="602.0" layoutY="-19.0" startX="-38.70709228515625" startY="19.0" />
+      <Line endX="140.29290771484375" endY="6.585784912109375" layoutX="454.0" layoutY="77.0" startX="64.29290771484375" startY="-77.0" />
+   </children>
+</AnchorPane>
