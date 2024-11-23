@@ -5,13 +5,13 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="640.0" prefWidth="520.0" style="-fx-background-color: #160866;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.proyecto_est.PrincipalController">
+<AnchorPane prefHeight="640.0" prefWidth="520.0" style="-fx-background-color: #160866;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.proyecto_est.PrincipalController">
    <children>
       <Label layoutX="33.0" layoutY="38.0" prefHeight="35.0" prefWidth="82.0" text="Bienvenido" textFill="WHITE">
          <font>
             <Font name="Bookshelf Symbol 7" size="13.0" />
          </font></Label>
-      <Label layoutX="33.0" layoutY="73.0" text="Estudiante" textFill="WHITE">
+      <Label fx:id="nombre" layoutX="33.0" layoutY="73.0" text="Estudiante" textFill="WHITE">
          <font>
             <Font name="Bookshelf Symbol 7" size="20.0" />
          </font>

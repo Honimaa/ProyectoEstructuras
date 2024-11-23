@@ -1,6 +1,8 @@
 package com.example.proyecto_est;
 import javafx.application.Application;
+import javafx.fxml.FXML;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -11,7 +13,11 @@ import javafx.geometry.Pos;
 import javafx.scene.layout.AnchorPane;
 
 public class PrincipalController {
-    private Estudiante estudiante;
+
+    @FXML
+    Label nombre;
+
+    private Estudiante estudiante = new Estudiante();
 
     public Estudiante getEstudiante() {
         return estudiante;
@@ -21,7 +27,12 @@ public class PrincipalController {
         this.estudiante = estudiante;
     }
 
-    public class CustomSearchBar extends Application {
+    @FXML
+    private void initialize() {
+        nombre.setText(estudiante.getUsuario());
+    }
+
+    /*public class CustomSearchBar extends Application {
 
 
 
@@ -61,5 +72,5 @@ public class PrincipalController {
             primaryStage.setScene(scene);
             primaryStage.show();
         }
-    }
+    }*/
 }
