@@ -38,8 +38,6 @@ public class Estudiante {
     }
 
     public void setTareas(List<Tarea> tareas) {
-        tareas = tareas;
+        this.tareas = tareas;
     }
-
-
 }

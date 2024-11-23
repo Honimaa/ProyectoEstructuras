@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="640.0" prefWidth="520.0" style="-fx-background-color: #160866;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.proyecto_est.CrearTareaController">
+<AnchorPane prefHeight="640.0" prefWidth="520.0" style="-fx-background-color: #160866;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.proyecto_est.CrearTareaController">
    <children>
       <ImageView fitHeight="92.0" fitWidth="96.0" layoutX="14.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -27,25 +27,25 @@
             <Font name="Bookshelf Symbol 7" size="14.0" />
          </font>
       </Label>
-      <TextField layoutX="44.0" layoutY="199.0" prefHeight="25.0" prefWidth="206.0" />
+      <TextField fx:id="txtNombreTarea" layoutX="44.0" layoutY="199.0" prefHeight="25.0" prefWidth="206.0" />
       <Label layoutX="44.0" layoutY="270.0" text="Nombre de la materia:" textFill="WHITE">
          <font>
             <Font name="Bookshelf Symbol 7" size="14.0" />
          </font>
       </Label>
-      <TextField layoutX="44.0" layoutY="295.0" prefHeight="25.0" prefWidth="206.0" />
+      <TextField fx:id="txtMateria" layoutX="44.0" layoutY="295.0" prefHeight="25.0" prefWidth="206.0" />
       <Label layoutX="44.0" layoutY="369.0" text="Descripción (Opcional)" textFill="WHITE">
          <font>
             <Font name="Bookshelf Symbol 7" size="14.0" />
          </font>
       </Label>
-      <TextField layoutX="44.0" layoutY="393.0" prefHeight="25.0" prefWidth="206.0" />
+      <TextField fx:id="txtDescripcion" layoutX="44.0" layoutY="393.0" prefHeight="25.0" prefWidth="206.0" />
       <Label layoutX="44.0" layoutY="454.0" text="Fecha de entrega:" textFill="WHITE">
          <font>
             <Font name="Bookshelf Symbol 7" size="14.0" />
          </font>
       </Label>
-      <ChoiceBox layoutX="44.0" layoutY="481.0" prefWidth="150.0" />
-      <Button layoutX="181.0" layoutY="553.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="158.0" text="Agregar tarea" />
+      <DatePicker fx:id="dpFechaEntrega" layoutX="44.0" layoutY="481.0" prefWidth="150.0" />
+      <Button fx:id="btnAgregarTarea" layoutX="181.0" layoutY="553.0" mnemonicParsing="false" onAction="#agregarTarea" prefHeight="36.0" prefWidth="158.0" text="Agregar tarea" />
    </children>
 </AnchorPane>
