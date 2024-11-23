@@ -69,9 +69,15 @@ public class CrearTareaController {
 
     @FXML
     private void volver() {
-        try {
-            HelloApplication.cambiarVista("Productividad.fxml", "EduTimePro - Productividad");
-        } catch (Exception e) {
+        try{
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Principal.fxml"));
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            PrincipalController principalController = loader.getController();
+            principalController.setEstudiante(estudiante);
+            Stage stage = (Stage) btnVolver.getScene().getWindow();
+            stage.setScene(scene);
+        }catch (Exception e) {
             e.printStackTrace();
         }
     }
