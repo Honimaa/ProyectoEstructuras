@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="640.0" prefWidth="520.0" style="-fx-background-color: #160866;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.proyecto_est.ProductividadController">
+<AnchorPane prefHeight="640.0" prefWidth="520.0" style="-fx-background-color: #160866;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.proyecto_est.ProductividadController">
    <children>
       <ImageView fitHeight="102.0" fitWidth="108.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -57,7 +57,7 @@
             <Image url="@../../../Libros.png" />
          </image>
       </ImageView>
-      <Label layoutX="66.0" layoutY="416.0" text="Hacer pausas activas " textFill="WHITE">
+      <Label layoutX="59.0" layoutY="417.0" text="Hacer pausas activas " textFill="WHITE">
          <font>
             <Font name="Bookshelf Symbol 7" size="14.0" />
          </font>
@@ -79,5 +79,7 @@
             <Font name="Bookshelf Symbol 7" size="14.0" />
          </font>
       </Label>
+      <Label fx:id="lblUltimaTarea" layoutX="90.0" layoutY="234.0" prefHeight="25.0" prefWidth="154.0" text="Label" textFill="WHITE" />
+      <Button fx:id="btnVolver" layoutX="435.0" layoutY="515.0" mnemonicParsing="false" onAction="#volver" text="volver" />
    </children>
 </AnchorPane>

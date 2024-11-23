@@ -50,7 +50,7 @@ public class CrearTareaController {
         if (nombre.isEmpty() || materia.isEmpty() || fechaEntrega == null) {
             System.out.println("Por favor completa todos los campos obligatorios.");
         } else {
-            Tarea tarea = new Tarea(nombre,materia,descripcion,0, fechaEntrega,0,false);
+            Tarea tarea = new Tarea(nombre,materia,descripcion,0, fechaEntrega,0,false,null);
             estudiante.getTareas().add(tarea);
             System.out.println("Tarea agregada exitosamente: " + nombre + " (" + materia + ")");
             try{

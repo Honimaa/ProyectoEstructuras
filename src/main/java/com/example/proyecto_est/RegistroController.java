@@ -44,9 +44,6 @@ public class RegistroController {
             estudiante.setTareas(new ArrayList<>());
             this.estudiantes.add(estudiante);
             try{
-                for(Estudiante est : estudiantes) {
-                    System.out.println(est.getTareas().size());
-                }
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("Login.fxml"));
                 Parent root = loader.load();
                 Scene scene = new Scene(root);

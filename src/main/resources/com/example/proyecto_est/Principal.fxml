@@ -26,7 +26,7 @@
             <Font name="Bookshelf Symbol 7" size="12.0" />
          </font>
       </Button>
-      <Button alignment="BOTTOM_CENTER" layoutX="211.0" layoutY="251.0" mnemonicParsing="false" prefHeight="102.0" prefWidth="99.0" style="-fx-background-color: #f2a05a;" text="Productividad" textFill="WHITE">
+      <Button alignment="BOTTOM_CENTER" layoutX="211.0" layoutY="251.0" mnemonicParsing="false" onMouseClicked="#goToProductividad" prefHeight="102.0" prefWidth="99.0" style="-fx-background-color: #f2a05a;" text="Productividad" textFill="WHITE">
          <font>
             <Font name="Bookshelf Symbol 7" size="12.0" />
          </font>
@@ -41,7 +41,7 @@
             <Image url="@../../../Libros.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="89.0" fitWidth="82.0" layoutX="219.0" layoutY="251.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imageProductividad" fitHeight="89.0" fitWidth="82.0" layoutX="219.0" layoutY="251.0" onMouseClicked="#goToProductividad" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../RelojArena.png" />
          </image>

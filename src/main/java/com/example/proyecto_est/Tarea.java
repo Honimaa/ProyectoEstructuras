@@ -1,5 +1,6 @@
 package com.example.proyecto_est;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.time.LocalDate;
 
@@ -11,8 +12,9 @@ public class Tarea {
     private LocalDate entrega;
     private int horasDedicadas;
     private boolean terminado;
+    private LocalDateTime fechaTerminacion;
 
-    public Tarea(String nombre, String nombreMateria, String descripcion, int dificultad, LocalDate entrega, int horasDedicadas, boolean terminado) {
+    public Tarea(String nombre, String nombreMateria, String descripcion, int dificultad, LocalDate entrega, int horasDedicadas, boolean terminado,LocalDateTime fechaTerminacion) {
         this.nombre = nombre;
         this.nombreMateria = nombreMateria;
         this.descripcion = descripcion;
@@ -20,6 +22,7 @@ public class Tarea {
         this.entrega = entrega;
         this.horasDedicadas = horasDedicadas;
         this.terminado = terminado;
+        this.fechaTerminacion = fechaTerminacion;
     }
 
     public Tarea() {
@@ -81,7 +84,13 @@ public class Tarea {
         this.terminado = terminado;
     }
 
+    public LocalDateTime getFechaTerminacion() {
+        return fechaTerminacion;
+    }
 
+    public void setFechaTerminacion(LocalDateTime fechaTerminacion) {
+        this.fechaTerminacion = fechaTerminacion;
+    }
 }
 
 
