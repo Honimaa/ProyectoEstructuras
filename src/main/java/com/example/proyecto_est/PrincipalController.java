@@ -15,6 +15,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 public class PrincipalController {
 
@@ -23,6 +24,9 @@ public class PrincipalController {
 
     @FXML
     private Accordion accordion; // Referencia al Accordion en el FXML.
+
+    @FXML
+    private Button btnLogOut;
 
     @FXML
     private ImageView imageLibros;
@@ -34,6 +38,16 @@ public class PrincipalController {
     private ImageView imageCalendario;
 
     private Estudiante estudiante;
+
+    private List<Estudiante> estudiantes;
+
+    public List<Estudiante> getEstudiantes() {
+        return estudiantes;
+    }
+
+    public void setEstudiantes(List<Estudiante> estudiantes) {
+        this.estudiantes = estudiantes;
+    }
 
     public Estudiante getEstudiante() {
         return estudiante;
@@ -170,6 +184,21 @@ public class PrincipalController {
                 // Añadir el TitledPane al Accordion solo si no está terminado.
                 accordion.getPanes().add(titledPane);
             }
+        }
+    }
+
+    @FXML
+    private void LogOut() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Login.fxml"));
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            LoginController loginController = loader.getController();
+            loginController.setEstudiantes(this.estudiantes);
+            Stage stage = (Stage) btnLogOut.getScene().getWindow();
+            stage.setScene(scene);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 

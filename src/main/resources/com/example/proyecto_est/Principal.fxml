@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="640.0" prefWidth="520.0" style="-fx-background-color: #160866;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.proyecto_est.PrincipalController">
+<AnchorPane prefHeight="640.0" prefWidth="520.0" style="-fx-background-color: #160866;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.proyecto_est.PrincipalController">
    <children>
       <Label layoutX="33.0" layoutY="38.0" prefHeight="35.0" prefWidth="82.0" text="Bienvenido" textFill="WHITE">
          <font>
@@ -67,5 +67,6 @@
             <Image url="@../../../pfpMujer.png" />
          </image>
       </ImageView>
+      <Button fx:id="btnLogOut" layoutX="400.0" layoutY="107.0" mnemonicParsing="false" onAction="#LogOut" text="Cerrar Sesion" />
    </children>
 </AnchorPane>

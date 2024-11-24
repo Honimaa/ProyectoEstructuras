@@ -4,10 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.time.LocalDateTime;
@@ -38,6 +35,12 @@ public class ProductividadController {
     @FXML
     private Button btnVolver;
 
+    @FXML
+    private Label lblTareaSeleccionada;
+
+    @FXML
+    private Label lblHorasTrabajadas;
+
     public Estudiante getEstudiante() {
         return estudiante;
     }
@@ -46,6 +49,8 @@ public class ProductividadController {
         this.estudiante = estudiante;
 
         lblUltimaTarea.setText(obtenerTareaFinalizadaReciente());
+        HorasDedicadas();
+        actualizarBarraProgreso();
         cargarTareasEnChoiceBox(); // Llamar a la función para cargar las tareas
     }
 
@@ -71,19 +76,17 @@ public class ProductividadController {
             choiceBoxTareas.getItems().add(tarea.getNombre()); // Agregar tarea por nombre
         }
 
-        // Establecer un listener para la selección de una tarea
+        // Listener para manejar la selección
         choiceBoxTareas.setOnAction(event -> {
             String selectedTareaNombre = choiceBoxTareas.getSelectionModel().getSelectedItem();
             if (selectedTareaNombre != null) {
-                Tarea tareaSeleccionada = null;
+                lblTareaSeleccionada.setText(selectedTareaNombre);
 
-                // Encontrar la tarea seleccionada en la lista de tareas
-                for (Tarea tarea : estudiante.getTareas()) {
-                    if (tarea.getNombre().equals(selectedTareaNombre)) {
-                        tareaSeleccionada = tarea;
-                        break;
-                    }
-                }
+                // Opcional: lógica adicional para cambiar dificultad o mover tareas
+                Tarea tareaSeleccionada = estudiante.getTareas().stream()
+                        .filter(t -> t.getNombre().equals(selectedTareaNombre))
+                        .findFirst()
+                        .orElse(null);
 
                 if (tareaSeleccionada != null) {
                     cambiarDificultad(tareaSeleccionada);
@@ -115,6 +118,33 @@ public class ProductividadController {
         // Actualizar el ChoiceBox para reflejar el cambio en el orden
         choiceBoxTareas.getItems().clear(); // Limpiar el ChoiceBox
         cargarTareasEnChoiceBox(); // Recargar las tareas con el nuevo orden
+    }
+
+    private void HorasDedicadas() {
+        int TotalHoras = 0;
+        for (Tarea tarea : this.estudiante.getTareas()){
+            TotalHoras +=tarea.getHorasDedicadas();
+        }
+
+        lblHorasTrabajadas.setText(Integer.toString(TotalHoras));
+    }
+
+    @FXML
+    private ProgressBar progressBar;
+
+    private void actualizarBarraProgreso() {
+        int totalTareas = estudiante.getTareas().size();
+        if (totalTareas == 0) {
+            progressBar.setProgress(0); // Si no hay tareas, progreso es 0
+            return;
+        }
+
+        long tareasCompletadas = estudiante.getTareas().stream()
+                .filter(Tarea::isTerminado)
+                .count(); // Contar tareas completadas
+
+        double progreso = (double) tareasCompletadas / totalTareas;
+        progressBar.setProgress(progreso); // Actualizar la barra de progreso
     }
 
     @FXML

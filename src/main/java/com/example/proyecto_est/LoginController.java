@@ -58,6 +58,7 @@ public class LoginController {
                         Scene scene = new Scene(root);
                         PrincipalController principalController = loader.getController();
                         principalController.setEstudiante(estudiante);
+                        principalController.setEstudiantes(estudiantes);
                         Stage stage = (Stage) btnLogin.getScene().getWindow();
                         stage.setScene(scene);
                     }catch (Exception e) {
