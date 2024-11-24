@@ -31,7 +31,7 @@
             <Font name="Bookshelf Symbol 7" size="12.0" />
          </font>
       </Button>
-      <Button alignment="BOTTOM_CENTER" layoutX="374.0" layoutY="251.0" mnemonicParsing="false" prefHeight="102.0" prefWidth="99.0" style="-fx-background-color: #5764fb;" text="Calendario" textFill="WHITE">
+      <Button alignment="BOTTOM_CENTER" layoutX="374.0" layoutY="251.0" mnemonicParsing="false" onMouseClicked="#goToCalendario" prefHeight="102.0" prefWidth="99.0" style="-fx-background-color: #5764fb;" text="Calendario" textFill="WHITE">
          <font>
             <Font name="Bookshelf Symbol 7" size="12.0" />
          </font>
@@ -46,7 +46,7 @@
             <Image url="@../../../RelojArena.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="89.0" fitWidth="82.0" layoutX="383.0" layoutY="250.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imageCalendario" fitHeight="89.0" fitWidth="82.0" layoutX="383.0" layoutY="250.0" onMouseClicked="#goToCalendario" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../Calendario.png" />
          </image>

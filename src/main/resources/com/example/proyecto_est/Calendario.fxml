@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/8.0.171"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.proyecto_est.CalendarioController">
+
+    <!-- Contenedor principal del calendario -->
+    <GridPane AnchorPane.topAnchor="20" AnchorPane.leftAnchor="20" AnchorPane.rightAnchor="20">
+
+        <!-- Encabezado de los días de la semana -->
+        <Label text="Lunes" style="-fx-font-weight: bold;" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <Label text="Martes" style="-fx-font-weight: bold;" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+        <Label text="Miércoles" style="-fx-font-weight: bold;" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+        <Label text="Jueves" style="-fx-font-weight: bold;" GridPane.rowIndex="0" GridPane.columnIndex="3"/>
+        <Label text="Viernes" style="-fx-font-weight: bold;" GridPane.rowIndex="0" GridPane.columnIndex="4"/>
+        <Label text="Sábado" style="-fx-font-weight: bold;" GridPane.rowIndex="0" GridPane.columnIndex="5"/>
+        <Label text="Domingo" style="-fx-font-weight: bold;" GridPane.rowIndex="0" GridPane.columnIndex="6"/>
+
+        <!-- Aquí se generarán dinámicamente los días del mes -->
+        <GridPane fx:id="gridDias" GridPane.rowIndex="1" GridPane.columnSpan="7" AnchorPane.topAnchor="50">
+            <!-- Los días se colocarán aquí dinámicamente -->
+        </GridPane>
+
+    </GridPane>
+
+    <Button text="Volver" fx:id="btnVolver" AnchorPane.bottomAnchor="10" AnchorPane.leftAnchor="10"/>
+</AnchorPane>

@@ -30,6 +30,9 @@ public class PrincipalController {
     @FXML
     private ImageView imageProductividad;
 
+    @FXML
+    private ImageView imageCalendario;
+
     private Estudiante estudiante;
 
     public Estudiante getEstudiante() {
@@ -76,6 +79,21 @@ public class PrincipalController {
             Scene scene = new Scene(root);
             ProductividadController productividadController = loader.getController();
             productividadController.setEstudiante(estudiante);
+            Stage stage = (Stage) imageCalendario.getScene().getWindow();
+            stage.setScene(scene);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void goToCalendario() {
+        try{
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Calendario.fxml"));
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            CalendarioController calendarioController = loader.getController();
+            calendarioController.setEstudiante(estudiante);
             Stage stage = (Stage) imageProductividad.getScene().getWindow();
             stage.setScene(scene);
         }catch (Exception e){
@@ -94,7 +112,6 @@ public class PrincipalController {
                 Label description = new Label("Descripción: " + tarea.getDescripcion());
                 Label materia = new Label("Materia: " + tarea.getNombreMateria());
                 Label entrega = new Label("Fecha de entrega: " + tarea.getEntrega());
-                Label dificultad = new Label("Prioridad: " + tarea.getDificultad());
                 Label horasDedicadas = new Label("Horas dedicadas: " + tarea.getHorasDedicadas());
                 Label terminado = new Label("¿Terminado?: " + (tarea.isTerminado() ? "Sí" : "No"));
 
@@ -104,12 +121,12 @@ public class PrincipalController {
                 // Botón para cambiar el estado de "finalizado".
                 Button toggleButton = new Button(tarea.isTerminado() ? "Marcar como no terminado" : "Marcar como terminado");
                 toggleButton.setLayoutX(10);
-                toggleButton.setLayoutY(150);
+                toggleButton.setLayoutY(110);
 
                 // Botón para aumentar las horas dedicadas.
                 Button increaseHoursButton = new Button("Añadir 1 hora de trabajo");
                 increaseHoursButton.setLayoutX(200);
-                increaseHoursButton.setLayoutY(150);
+                increaseHoursButton.setLayoutY(110);
 
                 // Configurar la acción del botón de estado "finalizado".
                 toggleButton.setOnAction(event -> {
@@ -142,15 +159,13 @@ public class PrincipalController {
                 materia.setLayoutY(30);
                 entrega.setLayoutX(10);
                 entrega.setLayoutY(50);
-                dificultad.setLayoutX(10);
-                dificultad.setLayoutY(70);
                 horasDedicadas.setLayoutX(10);
-                horasDedicadas.setLayoutY(90);
+                horasDedicadas.setLayoutY(70);
                 terminado.setLayoutX(10);
-                terminado.setLayoutY(110);
+                terminado.setLayoutY(90);
 
                 // Añadir todos los elementos al AnchorPane.
-                content.getChildren().addAll(description, materia, entrega, dificultad, horasDedicadas, terminado, toggleButton, increaseHoursButton);
+                content.getChildren().addAll(description, materia, entrega, horasDedicadas, terminado, toggleButton, increaseHoursButton);
 
                 // Añadir el TitledPane al Accordion solo si no está terminado.
                 accordion.getPanes().add(titledPane);

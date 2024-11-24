@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.stage.Stage;
 
 import java.time.LocalDateTime;
@@ -15,6 +16,9 @@ public class ProductividadController {
 
     @FXML
     private Label lblUltimaTarea;
+
+    @FXML
+    private ChoiceBox<String> choiceBoxTareas; // Cambio a ChoiceBox en lugar de ComboBox
 
     @FXML
     private ComboBox<String> cmbPrioridad;
@@ -42,6 +46,7 @@ public class ProductividadController {
         this.estudiante = estudiante;
 
         lblUltimaTarea.setText(obtenerTareaFinalizadaReciente());
+        cargarTareasEnChoiceBox(); // Llamar a la función para cargar las tareas
     }
 
     public String obtenerTareaFinalizadaReciente() {
@@ -57,14 +62,64 @@ public class ProductividadController {
                 fechaMasReciente = tarea.getFechaTerminacion(); // Actualiza la fecha más reciente
             }
         }
-        return tareaMasReciente.getNombre();
+        return tareaMasReciente != null ? tareaMasReciente.getNombre() : "No hay tareas finalizadas";
     }
 
+    // Función para cargar todas las tareas del estudiante en el ChoiceBox
+    public void cargarTareasEnChoiceBox() {
+        for (Tarea tarea : estudiante.getTareas()) {
+            choiceBoxTareas.getItems().add(tarea.getNombre()); // Agregar tarea por nombre
+        }
 
+        // Establecer un listener para la selección de una tarea
+        choiceBoxTareas.setOnAction(event -> {
+            String selectedTareaNombre = choiceBoxTareas.getSelectionModel().getSelectedItem();
+            if (selectedTareaNombre != null) {
+                Tarea tareaSeleccionada = null;
+
+                // Encontrar la tarea seleccionada en la lista de tareas
+                for (Tarea tarea : estudiante.getTareas()) {
+                    if (tarea.getNombre().equals(selectedTareaNombre)) {
+                        tareaSeleccionada = tarea;
+                        break;
+                    }
+                }
+
+                if (tareaSeleccionada != null) {
+                    cambiarDificultad(tareaSeleccionada);
+                    moverTareaADelante(tareaSeleccionada);
+                }
+            }
+        });
+    }
+
+    // Función para cambiar la dificultad de la tarea seleccionada a 1 y la anterior a 0
+    public void cambiarDificultad(Tarea tareaSeleccionada) {
+        // Cambiar la dificultad de la tarea seleccionada a 1
+        tareaSeleccionada.setDificultad(1);
+
+        // Buscar si hay otra tarea con dificultad 1 y cambiarla a 0
+        for (Tarea tarea : estudiante.getTareas()) {
+            if (tarea != tareaSeleccionada && tarea.getDificultad() == 1) {
+                tarea.setDificultad(0);
+                break; // Solo se puede tener una tarea con dificultad 1
+            }
+        }
+    }
+    // Función para mover la tarea seleccionada a la primera posición
+    public void moverTareaADelante(Tarea tareaSeleccionada) {
+        // Eliminar la tarea seleccionada de la lista y agregarla al principio
+        estudiante.getTareas().remove(tareaSeleccionada);
+        estudiante.getTareas().add(0, tareaSeleccionada);
+
+        // Actualizar el ChoiceBox para reflejar el cambio en el orden
+        choiceBoxTareas.getItems().clear(); // Limpiar el ChoiceBox
+        cargarTareasEnChoiceBox(); // Recargar las tareas con el nuevo orden
+    }
 
     @FXML
     private void volver() {
-        try{
+        try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("Principal.fxml"));
             Parent root = loader.load();
             Scene scene = new Scene(root);
@@ -72,9 +127,8 @@ public class ProductividadController {
             principalController.setEstudiante(estudiante);
             Stage stage = (Stage) btnVolver.getScene().getWindow();
             stage.setScene(scene);
-        }catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 }
-
